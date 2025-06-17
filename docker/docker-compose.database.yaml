@@ -1,0 +1,16 @@
+services:
+  localization_metaproject_postgres:
+    image: postgres:17
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=localization_metaproject
+    ports:
+      - "5433:5432"
+    volumes:
+      - localization_metaproject_postgres:/var/lib/postgresql/data
+
+volumes:
+  localization_metaproject_postgres:
+    driver: local
